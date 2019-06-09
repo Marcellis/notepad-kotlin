@@ -8,11 +8,12 @@ import com.androidcourse.notepadkotlin.model.Note
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class EditViewModel(application: Application) : AndroidViewModel(application) {
 
     private val noteRepository = NoteRepository(application.applicationContext)
-    private val ioScope = CoroutineScope(Dispatchers.IO)
+    private val mainScope = CoroutineScope(Dispatchers.Main)
 
     val note = MutableLiveData<Note?>()
     val error = MutableLiveData<String?>()
@@ -20,8 +21,10 @@ class EditViewModel(application: Application) : AndroidViewModel(application) {
 
     fun updateNote() {
         if (isNoteValid()) {
-            ioScope.launch {
-                noteRepository.updateNotepad(note.value!!)
+            mainScope.launch {
+                withContext(Dispatchers.IO) {
+                    noteRepository.updateNotepad(note.value!!)
+                }
                 success.value = true
             }
         }
