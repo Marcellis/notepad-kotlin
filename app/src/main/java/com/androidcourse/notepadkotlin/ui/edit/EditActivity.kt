@@ -6,7 +6,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.androidcourse.notepadkotlin.R
 import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.android.synthetic.main.content_edit.*
@@ -42,7 +42,7 @@ class EditActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        editViewModel = ViewModelProviders.of(this).get(EditViewModel::class.java)
+        editViewModel = ViewModelProvider(this).get(EditViewModel::class.java)
         editViewModel.note.value = intent.extras?.getParcelable(EXTRA_NOTE)!!
 
         editViewModel.note.observe(this, Observer { note ->

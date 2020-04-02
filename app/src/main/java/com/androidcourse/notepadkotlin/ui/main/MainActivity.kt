@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.androidcourse.notepadkotlin.R
 import com.androidcourse.notepadkotlin.ui.edit.EditActivity
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        mainActivityViewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
+        mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
         mainActivityViewModel.note.observe(this, Observer { note ->
             if (note != null) {
