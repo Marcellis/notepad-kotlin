@@ -1,4 +1,4 @@
-package com.androidcourse.notepadkotlin
+package nl.hva.level5task1
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

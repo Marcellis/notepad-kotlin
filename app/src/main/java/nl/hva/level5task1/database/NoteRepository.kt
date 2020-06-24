@@ -1,15 +1,18 @@
-package com.androidcourse.notepadkotlin.database
+package nl.hva.level5task1.database
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import com.androidcourse.notepadkotlin.model.Note
+import nl.hva.level5task1.model.Note
 
 class NoteRepository(context: Context) {
 
     private val noteDao: NoteDao
 
     init {
-        val database = NotepadRoomDatabase.getDatabase(context)
+        val database =
+            NotepadRoomDatabase.getDatabase(
+                context
+            )
         noteDao = database!!.noteDao()
     }
 

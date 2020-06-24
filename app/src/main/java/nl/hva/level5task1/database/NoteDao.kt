@@ -1,11 +1,11 @@
-package com.androidcourse.notepadkotlin.database
+package nl.hva.level5task1.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.androidcourse.notepadkotlin.model.Note
+import nl.hva.level5task1.model.Note
 
 @Dao
 interface NoteDao {

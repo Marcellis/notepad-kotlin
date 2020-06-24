@@ -1,4 +1,4 @@
-package com.androidcourse.notepadkotlin.database
+package nl.hva.level5task1.database
 
 import androidx.room.TypeConverter
 import java.util.*

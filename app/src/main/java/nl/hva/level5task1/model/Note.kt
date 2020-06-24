@@ -1,4 +1,4 @@
-package com.androidcourse.notepadkotlin.model
+package nl.hva.level5task1.model
 
 import android.os.Parcelable
 import androidx.room.Entity
