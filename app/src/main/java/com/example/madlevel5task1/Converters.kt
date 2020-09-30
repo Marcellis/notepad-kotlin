@@ -1,4 +1,4 @@
-package nl.hva.level5task1.database
+package com.example.madlevel5task1
 
 import androidx.room.TypeConverter
 import java.util.*

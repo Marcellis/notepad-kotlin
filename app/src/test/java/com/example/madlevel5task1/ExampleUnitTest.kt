@@ -1,4 +1,4 @@
-package nl.hva.level5task1
+package com.example.madlevel5task1
 
 import org.junit.Test
 

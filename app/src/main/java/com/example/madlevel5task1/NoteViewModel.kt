@@ -1,4 +1,4 @@
-package nl.hva.level5task1.vm
+package com.example.madlevel5task1
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -7,16 +7,17 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import nl.hva.level5task1.database.NoteRepository
-import nl.hva.level5task1.model.Note
 import java.util.*
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val noteRepository = NoteRepository(application.applicationContext)
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
+
+    private val noteRepository =  NoteRepository(application.applicationContext)
+
     val note = noteRepository.getNotepad()
+
     val error = MutableLiveData<String>()
     val success = MutableLiveData<Boolean>()
 
@@ -49,4 +50,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
             else -> true
         }
     }
+
+
 }

@@ -3,24 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/NotepadFragment">
+    app:startDestination="@id/notePadFragment">
 
     <fragment
-        android:id="@+id/NotepadFragment"
-        android:name="nl.hva.level5task1.ui.NotepadFragment"
-        android:label="Reminders Fragment"
-        tools:layout="@layout/fragment_notepad">
-
+        android:id="@+id/notePadFragment"
+        android:name="com.example.madlevel5task1.NotepadFragment"
+        android:label="fragment_notepad"
+        tools:layout="@layout/fragment_notepad" >
         <action
-            android:id="@+id/action_NotepadFragment_to_AddNoteFragment"
-            app:destination="@id/AddNoteFragment"
-            app:enterAnim="@anim/fragment_open_enter" />
+            android:id="@+id/action_notepadFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/AddNoteFragment"
-        android:name="nl.hva.level5task1.ui.AddNoteFragment"
-        android:label="Add Reminder Fragment"
-        tools:layout="@layout/fragment_add_note" >
-    </fragment>
+        android:id="@+id/addNoteFragment"
+        android:name="com.example.madlevel5task1.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" />
+
 </navigation>
