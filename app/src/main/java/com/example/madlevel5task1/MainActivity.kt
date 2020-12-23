@@ -1,27 +1,30 @@
 package com.example.madlevel5task1
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.navigation.fragment.NavHostFragment
+import com.example.madlevel5task1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setSupportActionBar(binding.toolbar)
+        setContentView(binding.root)
 
-        navController = findNavController(R.id.nav_host_fragment)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
-        fab.setOnClickListener {
+        navController = navHostFragment.navController
+
+        binding.fab.setOnClickListener {
             navController.navigate(
                 R.id.action_notepadFragment_to_addNoteFragment
             )
@@ -37,11 +40,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fabToggler() {
-        navController.addOnDestinationChangedListener { _,       destination, _ ->
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id in arrayOf(R.id.addNoteFragment)) {
-                fab.hide()
+                binding.fab.hide()
             } else {
-                fab.show()
+                binding.fab.show()
             }
         }
     }

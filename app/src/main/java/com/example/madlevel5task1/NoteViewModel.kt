@@ -13,8 +13,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
-
-    private val noteRepository =  NoteRepository(application.applicationContext)
+    private val noteRepository = NoteRepository(application.applicationContext)
 
     val note = noteRepository.getNotepad()
 
@@ -31,7 +30,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
             text = text
         )
 
-        if(isNoteValid(newNote)) {
+        if (isNoteValid(newNote)) {
             mainScope.launch {
                 withContext(Dispatchers.IO) {
                     noteRepository.updateNotepad(newNote)
